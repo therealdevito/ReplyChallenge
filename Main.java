@@ -1,9 +1,10 @@
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.File;
+import java.io.*;
 import java.util.HashSet;
+import java.util.Scanner;
 
 public class Main {
 
@@ -24,12 +25,12 @@ public class Main {
             Scanner scanner = new Scanner(file);
             
             String str1 = scanner.nextLine();
-            String[] part1 = str.split(" ");
+            String[] part1 = str1.split(" ");
 
             W = Integer.parseInt(part1[0]);
             D = Integer.parseInt(part1[1]);
 
-            String[] map;
+            String[] map = new String[1000];
 
             for(i = 0; i < H; i++) {
                 String str2 = scanner.nextLine();
@@ -42,11 +43,11 @@ public class Main {
             for(i = 0; i < D; i++) {
 
                 String dev = scanner.nextLine();
-                String[] dev1 = str.split();
+                String[] dev1 = dev.split(" ");
 
                 String company = dev1[0];
-                long bonus = dev1[1];
-                int skilsNo = dev1[2];
+                long bonus = Long.parseLong(dev1[1]);
+                int skilsNo = Integer.parseInt(dev1[2]);
                 
                 HashSet <String> skills = new HashSet<>();
 
@@ -64,10 +65,10 @@ public class Main {
             for(i = 0; i < D; i++) {
 
                 String pm = scanner.nextLine();
-                String[] pm1 = str.split();
+                String[] pm1 = pm.split(" ");
 
-                String company = dev1[0];
-                long bonus = dev1[1];
+                String company = pm1[0];
+                long bonus = Long.parseLong(pm1[1]);
 
                 ProjectManager projectManager = new ProjectManager(company, bonus);
                 projectManagers.add(projectManager);
