@@ -1,14 +1,23 @@
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.HashSet;
 
 public class Main {
 
+    public static int H;
+    public static int W;
     public static int D;
     public static int M;
     public static ArrayList <Developer> developers = new ArrayList();
-    public static ArrayList <ProjectManagers> projectManagers = new ArrayList();
+    public static ArrayList <ProjectManager> projectManagers = new ArrayList();
     public static int Width;
     public static int Height;
     public static void main(String[] args) {
+
+        int i;
 
         try {
             File file = new File("a_example");
@@ -16,11 +25,13 @@ public class Main {
             
             String str1 = scanner.nextLine();
             String[] part1 = str.split(" ");
-            W = Integer.parseInt(part[0]);
-            D = Integer.parseInt(part[1]);
+
+            W = Integer.parseInt(part1[0]);
+            D = Integer.parseInt(part1[1]);
 
             String[] map;
-            for(int i = 0; i < H; i++) {
+
+            for(i = 0; i < H; i++) {
                 String str2 = scanner.nextLine();
                 map[i] = str2;
             }
@@ -28,7 +39,8 @@ public class Main {
             String str3 = scanner.nextLine();
             D = Integer.parseInt(str3);
 
-            for(int i = 0; i < D; i++) {
+            for(i = 0; i < D; i++) {
+
                 String dev = scanner.nextLine();
                 String[] dev1 = str.split();
 
@@ -38,7 +50,7 @@ public class Main {
                 
                 HashSet <String> skills = new HashSet<>();
 
-                for(int i = 3; i < dev1.length; i++) {
+                for(i = 3; i < dev1.length; i++) {
                     skills.add(dev1[i]);
                 }
 
@@ -49,7 +61,7 @@ public class Main {
             String str4 = scanner.nextLine();
             M = Integer.parseInt(str4);
 
-            for(int i = 0; i < D; i++) {
+            for(i = 0; i < D; i++) {
 
                 String pm = scanner.nextLine();
                 String[] pm1 = str.split();
